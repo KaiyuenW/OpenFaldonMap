@@ -126,7 +126,7 @@ function drawSpawns(mapNr, monsterId) {
 		if(spawn.map != mapNr)continue;
 		if(monsterId==SHOW_VENDORS && !vendors.includes(spawn.monster)) continue;
 		else if(monsterId==SHOW_MONSTERS && vendors.includes(spawn.monster)) continue;
-		else if(monsterId>0 && spawn.monster != monsterId) continue;
+		else if(monsterId>=0 && spawn.monster != monsterId) continue;
 		
 		var x = parseInt(spawn.x);
 		var y = parseInt(spawn.y);
