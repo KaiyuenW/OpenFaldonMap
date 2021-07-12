@@ -111,6 +111,7 @@ function loadSpawns() {
 			spawn.z = sData[2];
 			spawn.map = sData[3];
 			spawn.monster = sData[4];
+			if(sData.length>5) spawn.name = sData[5];
 			
 			spawnData.push(spawn);
 		}
@@ -146,7 +147,8 @@ function drawSpawns(mapNr, monsterId) {
 		
         var span = document.createElement("span");
         span.classList.add('tooltip');
-		span.innerText=names[spawn.monster];
+		if(spawn.name) span.innerText=spawn.name;
+		else span.innerText=names[spawn.monster];
         svg_img.appendChild(span);
 		
 		elem.id = "spawn"+i;
