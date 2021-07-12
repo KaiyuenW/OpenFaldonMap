@@ -141,7 +141,7 @@ function drawSpawns(mapNr, monsterId) {
         var svg_img = document.createElement("div");
         //svg_img.src = "images/Down_arrow_red.svg";
         svg_img.classList.add('spawn-pointer');
-		if(names[spawn.monster].includes('-')) svg_img.style.filter = 'invert(1)';
+		if(vendors.includes(spawn.monster)) svg_img.style.filter = 'invert(1)';
 		else svg_img.style.filter = 'hue-rotate('+spawn.monster*20+'deg)';
 		
         var span = document.createElement("span");
