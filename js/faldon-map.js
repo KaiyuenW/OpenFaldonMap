@@ -1,6 +1,9 @@
+var SHOW_ALL=-1, SHOW_MONSTERS=-2, SHOW_VENDORS=-3;
 
 var spawnData = new Array();
 var monsterData = new Array();
+var names = new Object();
+const vendors=['10','20','65','66','133','154','158','162'];
 
 var mapWidth = 4096;
 var mapHeight = 2048;
@@ -40,7 +43,7 @@ function selectMonster(monsterId) {
 	var sel = document.monster_form.map_select;
 	sel.options.length = 0;
     
-    if(selectedMob != 0){	
+    if(selectedMob > 0){	
         
         var mobOnCurrentMap = false;
         for(var i = 0; i < mapsWithMob.length; i++) {
@@ -60,7 +63,6 @@ function selectMonster(monsterId) {
             selectMap(currentMap);
         }
     }else{
-        
         for(var i = 1; i <= 9; i++){
             var currentOption = sel.options.length;
             sel.options[currentOption] = new Option("Map "+i, i, false, false);
@@ -80,7 +82,8 @@ function loadMonsters() {
 			monster.id = mData[0];
 			monster.name = mData[1];
 			
-			monsterData.push(monster);		
+			monsterData.push(monster);	
+			names[monster.id] = monster.name;
 		}
 		
 		var sel = document.monster_form.monster_select;
@@ -112,13 +115,18 @@ function loadSpawns() {
 			spawnData.push(spawn);
 		}
 	});
+	
 }
+
 
 function drawSpawns(mapNr, monsterId) {
 	
 	for(var i = 0; i < spawnData.length; i++) {
 		var spawn = spawnData[i];
-		if(spawn.map != mapNr  || spawn.monster != monsterId) { continue; }
+		if(spawn.map != mapNr)continue;
+		if(monsterId==SHOW_VENDORS && !vendors.includes(spawn.monster)) continue;
+		else if(monsterId==SHOW_MONSTERS && vendors.includes(spawn.monster)) continue;
+		else if(monsterId>0 && spawn.monster != monsterId) continue;
 		
 		var x = parseInt(spawn.x);
 		var y = parseInt(spawn.y);
@@ -130,15 +138,22 @@ function drawSpawns(mapNr, monsterId) {
         var vy = sy/mapHeight; //viewport y
 
         var elem = document.createElement("div");
-        var svg_img = document.createElement("img");
-        svg_img.src = "images/Down_arrow_red.svg";
+        var svg_img = document.createElement("div");
+        //svg_img.src = "images/Down_arrow_red.svg";
         svg_img.classList.add('spawn-pointer');
-        elem.id = "spawn"+i;
+		if(names[spawn.monster].includes('-')) svg_img.style.filter = 'invert(1)';
+		else svg_img.style.filter = 'hue-rotate('+spawn.monster*20+'deg)';
+		
+        var span = document.createElement("span");
+        span.classList.add('tooltip');
+		span.innerText=names[spawn.monster];
+        svg_img.appendChild(span);
+		
+		elem.id = "spawn"+i;
         elem.appendChild(svg_img)
         viewer.addOverlay(  elem,
                             new OpenSeadragon.Point(vx, vy)
         );
-		console.log("Spawn for "+monsterId+" found at x: "+vx+" , y: "+vy);
 	}
 }
 

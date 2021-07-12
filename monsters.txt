@@ -1,190 +1,194 @@
 0,-None-
-11,Ant           
-41,Ant Queen     
-130,Arch Magi     
-26,Army Ant      
-135,Assassin      
-62,Baby Dragon   
-136,Bandit        
-55,Bat           
-101,Bengal Tiger  
-108,Black Bear    
-24,Black Sludge  
-122,Blue Bunny    
-83,Blue Dragon   
-23,Blue Slime    
+-1,-All-
+-2,-Monsters-
+-3,-Vendors-
+11,Ant
+41,Ant Queen
+130,Arch Magi
+26,Army Ant
+135,Assassin
+62,Baby Dragon
+136,Bandit
+55,Bat
+9998,Beet
+101,Bengal Tiger
+108,Black Bear
+24,Black Sludge
+122,Blue Bunny
+83,Blue Dragon
+23,Blue Slime
 189,Blue Wyrm
-87,Bone Knight   
-106,Brown Bear    
-82,Bug           
-124,Bunnie        
-120,Bunny         
-96,Burnt Turkey  
-56,Cacomage      
-53,Cacowraith    
+87,Bone Knight
+106,Brown Bear
+82,Bug
+124,Bunnie
+120,Bunny
+96,Burnt Turkey
+56,Cacomage
+53,Cacowraith
 187,Catbert
-30,Centaur Scout 
+30,Centaur Scout
 31,Centaur Wizard
 184,Chaos Spider
-33,Chicken       
-143,Cobra         
-14,Cockroach     
-49,Corrosive     
-43,Crawler       
+33,Chicken
+143,Cobra
+14,Cockroach
+49,Corrosive
+43,Crawler
 45,Crawler Zealot
-89,Critter       
-77,Daija         
-170,Daijou        
-81,Daisy         
-99,Death Knight  
-40,Death Snake   
-75,Dire Wolf     
-61,Dirt Golem    
-173,Doom Beetle   
-114,Dragon Ghost  
-174,Dung Beetle   
-88,Elder Dragon  
-167,Elf           
-168,Elf           
-16,Evil Eye      
+89,Critter
+77,Daija
+170,Daijou
+81,Daisy
+99,Death Knight
+40,Death Snake
+75,Dire Wolf
+61,Dirt Golem
+173,Doom Beetle
+114,Dragon Ghost
+174,Dung Beetle
+88,Elder Dragon
+167,Elf
+168,Elf
+16,Evil Eye
 19,Evil Fruit Bat
-80,Fluffy        
-68,Forest Ooze   
+80,Fluffy
+68,Forest Ooze
 186,Frost Golem
-12,Giant Rat     
+12,Giant Rat
 127,Giant Scorpion
-13,Giant Snail   
-110,Gold Dragon   
-1,Grass Snake   
-91,Great Pumpkin 
-76,Great Shaman  
+13,Giant Snail
+110,Gold Dragon
+1,Grass Snake
+91,Great Pumpkin
+76,Great Shaman
 183,Greater Dragon
-37,Greater Lich  
-109,Green Dragon  
-85,Green Slime   
-51,Gremlin       
-107,Grizzly Bear  
-161,Guard         
-52,Haunt         
-111,Headless      
-112,Headless      
-67,Hell Serpent  
-57,Hell Sloth    
-139,High Centaur  
-94,Holocaust     
-18,Holy Knight   
-70,Horse         
-177,Human         
-144,Hungry Dog    
-71,Ice           
-166,Ice Skater    
+37,Greater Lich
+109,Green Dragon
+85,Green Slime
+51,Gremlin
+107,Grizzly Bear
+161,Guard
+52,Haunt
+111,Headless
+112,Headless
+67,Hell Serpent
+57,Hell Sloth
+139,High Centaur
+94,Holocaust
+18,Holy Knight
+70,Horse
+177,Human
+144,Hungry Dog
+71,Ice
+166,Ice Skater
 9,Illusion Snake
-169,Ladybug       
-69,Lava          
+169,Ladybug
+69,Lava
 42,Lesser Crawler
-36,Lesser Lich   
+36,Lesser Lich
 156,Lesser Vampire
-46,Lichen        
+46,Lichen
 21,Lightning Ooze
-132,Lost Spirit   
-117,Mad Scientist 
-178,Mage          
-138,Mage Guard    
-93,Magic Horse   
-159,Magma Golem   
-92,Mecha-Pumpkin 
-179,Medium Mage   
+132,Lost Spirit
+117,Mad Scientist
+178,Mage
+138,Mage Guard
+93,Magic Horse
+159,Magma Golem
+92,Mecha-Pumpkin
+179,Medium Mage
 175,Medium Warrior
-145,Medusa        
-147,Mithril Slime 
-126,Mongoose      
-140,Monk          
-2,Mouse         
+145,Medusa
+147,Mithril Slime
+126,Mongoose
+140,Monk
+2,Mouse
 64,Mystical Snail
-137,Necromancer   
-134,Nightblade    
-32,Nightmare     
-59,Ninja Turtle  
-60,Ninja Turtle  
-86,Oddity        
+137,Necromancer
+134,Nightblade
+32,Nightmare
+59,Ninja Turtle
+60,Ninja Turtle
+86,Oddity
 185,Omar
-73,Orc Archer    
-74,Orc Knight    
-153,Orc Shaman    
-152,Orc War Boss  
+73,Orc Archer
+74,Orc Knight
+153,Orc Shaman
+152,Orc War Boss
 125,Ornlu The Wolf
-17,Paladin       
-72,Paula'S Pony  
-98,Penguin       
-123,Peter Rabbit  
-38,Pigeon        
-181,Pigvine       
-104,Polar Bear    
+17,Paladin
+72,Paula'S Pony
+98,Penguin
+123,Peter Rabbit
+38,Pigeon
+181,Pigvine
+104,Polar Bear
 48,Polluted Slime
-90,Pumpkin Man   
-34,Python        
-119,Rabbit        
-63,Radioactive   
-165,Radioinactive 
-5,Rat           
-6,Rattlesnake   
-155,Red Dragon    
-128,Rock Titan    
-102,Sabre Tooth   
-172,Serpent       
-58,Sewer Rat     
-47,Sewer Slime   
-113,Silver Dragon 
-28,Skeletal Lord 
-7,Skeleton      
-44,Skinned Mouse 
-141,Slave         
+90,Pumpkin Man
+34,Python
+119,Rabbit
+63,Radioactive
+165,Radioinactive
+5,Rat
+6,Rattlesnake
+155,Red Dragon
+128,Rock Titan
+102,Sabre Tooth
+172,Serpent
+58,Sewer Rat
+47,Sewer Slime
+113,Silver Dragon
+28,Skeletal Lord
+7,Skeleton
+44,Skinned Mouse
+141,Slave
 131,Small Scorpion
-39,Small Spider  
-3,Snail         
-79,Spectre       
-27,Spider        
-164,Spider        
-78,Spiderweb     
-50,Spitter       
-29,Squire        
-116,Stone Golem   
-180,Strong Mage   
+39,Small Spider
+3,Snail
+79,Spectre
+27,Spider
+164,Spider
+78,Spiderweb
+50,Spitter
+29,Squire
+116,Stone Golem
+180,Strong Mage
 171,Strong Warrior
 22,Summoned Slime
-163,Summoned Wolf 
+163,Summoned Wolf
 188,Sun Bear
-97,Super Turkey  
-182,Tarantula  
-100,Tiger         
-149,Touched One   
-15,Town Guard    
-148,Town Guard    
+97,Super Turkey
+182,Tarantula
+100,Tiger
+149,Touched One
+15,Town Guard
+148,Town Guard
 146,Training Dummy
-95,Turkey        
-150,Undead Guard  
-8,Undead Shaman 
-157,Vampire       
-25,Vampire Bat   
-84,Vile Rodent   
-115,Walking Bones 
-176,Warrior       
-151,Water Blob    
-105,Were-Bear     
-160,Wild Cat      
-142,Winter Wolf   
-103,Wisp          
-129,Witch         
-4,Wolf          
-35,Wraith        
-121,Wraith        
-118,Wyrm          
-54,Zombie        
+95,Turkey
+150,Undead Guard
+8,Undead Shaman
+157,Vampire
+25,Vampire Bat
+84,Vile Rodent
+115,Walking Bones
+176,Warrior
+151,Water Blob
+105,Were-Bear
+160,Wild Cat
+142,Winter Wolf
+103,Wisp
+129,Witch
+4,Wolf
+35,Wraith
+121,Wraith
+118,Wyrm
+54,Zombie
 158,-Battlevendor-
 162,-Battlevendor-
-10,-Vendor-      
-65,-Vendor Wall- 
+10,-Vendor-
+65,-Vendor Wall-
 66,-Vendor Wall2-
-133,-Vendor2-     
-154,-Vendor3-     
+133,-Vendor2-
+154,-Vendor3-
 20,-Vendor-Wandr-
