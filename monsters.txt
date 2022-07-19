@@ -10,11 +10,15 @@
 62,Baby Dragon
 136,Bandit
 55,Bat
-9998,Beet
 101,Bengal Tiger
 108,Black Bear
+191,Black Dragon
+190,Black Skeleton
 24,Black Sludge
+193,Black Tiger
+192,Black Wyrm
 122,Blue Bunny
+189,Blue Wyrm
 83,Blue Dragon
 23,Blue Slime
 189,Blue Wyrm
@@ -133,6 +137,7 @@
 5,Rat
 6,Rattlesnake
 155,Red Dragon
+194,Red Serpent
 128,Rock Titan
 102,Sabre Tooth
 172,Serpent
