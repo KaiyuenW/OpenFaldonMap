@@ -142,8 +142,9 @@ function drawSpawns(mapNr, monsterId) {
         var svg_img = document.createElement("div");
         //svg_img.src = "images/Down_arrow_red.svg";
         svg_img.classList.add('spawn-pointer');
-		if(vendors.includes(spawn.monster)) svg_img.style.filter = 'invert(1)';
-		else svg_img.style.filter = 'hue-rotate('+spawn.monster*20+'deg)';
+		
+	svg_img.style.filter = 'hue-rotate('+spawn.monster*20+'deg)';
+    	if(spawn.monster%2==0) svg_img.style.filter += ' invert(1) brightness(80%)';
 		
         var span = document.createElement("span");
         span.classList.add('tooltip');
