@@ -1,5 +1,6 @@
-var SHOW_ALL=-1, SHOW_MONSTERS=-2, SHOW_VENDORS=-3;
+var SHOW_ALL=-1, SHOW_MONSTERS=-2, SHOW_VENDORS=-3, SHOW_FLOWERS=-4;
 
+var flowerSpawnData = new Array();
 var spawnData = new Array();
 var monsterData = new Array();
 var names = new Object();
@@ -24,7 +25,7 @@ function selectMonster(monsterId) {
 	for(var i = 0; i < spawnData.length; i++) {
 		var spawn = spawnData[i];
 		
-		if(spawn.monster == monsterId) {
+		if(spawn.monster == selectedMob) {
 			var inlist = false;
 			for(var m = 0; m < mapsWithMob.length; m++) {
 				if(mapsWithMob[m] == spawn.map) {
@@ -37,38 +38,40 @@ function selectMonster(monsterId) {
 				mapsWithMob.push(spawn.map);
 			}
 		}
-    }
-    clearSpawns();
-    drawSpawns(currentMap, selectedMob);
+  }
+  clearSpawns();
+  if(selectedMob==SHOW_FLOWERS){
+    drawFlowers(currentMap);
+  }else drawSpawns(currentMap, selectedMob);
 	var sel = document.monster_form.map_select;
 	sel.options.length = 0;
     
-    if(selectedMob > 0){	
-        
-        var mobOnCurrentMap = false;
-        for(var i = 0; i < mapsWithMob.length; i++) {
-            var map = mapsWithMob[i];
-            
-            if(map == currentMap){
-                mobOnCurrentMap = true;
-            }
-            
-            sel.options[sel.options.length] = new Option("Map " + map, map, false, false); 
-        }
+  if(selectedMob > 0){	
+      
+      var mobOnCurrentMap = false;
+      for(var i = 0; i < mapsWithMob.length; i++) {
+          var map = mapsWithMob[i];
+          
+          if(map == currentMap){
+              mobOnCurrentMap = true;
+          }
+          
+          sel.options[sel.options.length] = new Option("Map " + map, map, false, false); 
+      }
 
-        if(mobOnCurrentMap){        
-            $("#map_select").val(currentMap);
-        }else{
-            currentMap = sel.options[0].value;
-            selectMap(currentMap);
-        }
-    }else{
-        for(var i = 1; i <= 9; i++){
-            var currentOption = sel.options.length;
-            sel.options[currentOption] = new Option("Map "+i, i, false, false);
-        }
-        $("#map_select").val(currentMap);
-    }
+      if(mobOnCurrentMap){        
+          $("#map_select").val(currentMap);
+      }else{
+          currentMap = sel.options[0].value;
+          selectMap(currentMap);
+      }
+  }else{
+      for(var i = 1; i <= 9; i++){
+          var currentOption = sel.options.length;
+          sel.options[currentOption] = new Option("Map "+i, i, false, false);
+      }
+      $("#map_select").val(currentMap);
+  }
 }
 
 function loadMonsters() {
@@ -117,11 +120,26 @@ function loadSpawns() {
 		}
 	});
 	
+	$.get("flower-spawns.txt", function(data) {
+		var lines = data.split("\r\n");
+		
+		for(var i = 0; i < lines.length; i++) {
+			var sData = lines[i].split(",");
+			
+			var spawn = new Object();
+			
+			spawn.map = sData[0];
+			spawn.x = sData[1];
+			spawn.y = sData[2];
+			spawn.z = sData[3];
+			
+			flowerSpawnData.push(spawn);
+		}
+	});
 }
 
 
-function drawSpawns(mapNr, monsterId) {
-	
+function drawSpawns(mapNr, monsterId) {	
 	for(var i = 0; i < spawnData.length; i++) {
 		var spawn = spawnData[i];
 		if(spawn.map != mapNr)continue;
@@ -134,35 +152,67 @@ function drawSpawns(mapNr, monsterId) {
 		
 		var sx = (x - y) * tileWidth;
 		sx += mapWidth/2;
-        var sy = (x + y) * tileHeight;
-        var vx = sx/mapWidth; //viewport x
-        var vy = sy/mapHeight; //viewport y
+    var sy = (x + y) * tileHeight;
+    var vx = sx/mapWidth; //viewport x
+    var vy = sy/mapHeight; //viewport y
 
-        var elem = document.createElement("div");
-        var svg_img = document.createElement("div");
-        //svg_img.src = "images/Down_arrow_red.svg";
-        svg_img.classList.add('spawn-pointer');
-		
-	svg_img.style.filter = 'hue-rotate('+spawn.monster*20+'deg)';
-    	if(spawn.monster%2==0) svg_img.style.filter += ' invert(1) brightness(80%)';
-		
-        var span = document.createElement("span");
-        span.classList.add('tooltip');
+    var elem = document.createElement("div");
+    var svg_img = document.createElement("div");
+    //svg_img.src = "images/Down_arrow_red.svg";
+    svg_img.classList.add('spawn-pointer');
+    
+		//if(vendors.includes(spawn.monster)) svg_img.style.filter = 'invert(1)';
+		//else svg_img.style.filter = 'hue-rotate('+spawn.monster*20+'deg)';
+    
+    
+		svg_img.style.filter = 'hue-rotate('+spawn.monster*20+'deg)';
+    if(spawn.monster%2==0) svg_img.style.filter += ' invert(1) brightness(80%)';
+    //if(spawn.monster%3==1) svg_img.style.filter += ' invert(1)';
+      
+    var span = document.createElement("span");
+    span.classList.add('tooltip');
 		if(spawn.name) span.innerText=spawn.name;
 		else span.innerText=names[spawn.monster];
-        svg_img.appendChild(span);
+    svg_img.appendChild(span);
 		
 		elem.id = "spawn"+i;
-        elem.appendChild(svg_img)
-        viewer.addOverlay(  elem,
-                            new OpenSeadragon.Point(vx, vy)
-        );
+    elem.appendChild(svg_img)
+    viewer.addOverlay(elem, new OpenSeadragon.Point(vx, vy));
 	}
 }
 
 function clearSpawns(){
 
     viewer.clearOverlays();
+}
+
+function drawFlowers(mapNr) {	
+	for(var i = 0; i < flowerSpawnData.length; i++) {
+		var spawn = flowerSpawnData[i];
+		if(spawn.map != mapNr)continue;
+		
+		var x = parseInt(spawn.x);
+		var y = parseInt(spawn.y);
+		
+		var sx = (x - y) * tileWidth;
+		sx += mapWidth/2;
+    var sy = (x + y) * tileHeight;
+    var vx = sx/mapWidth; //viewport x
+    var vy = sy/mapHeight; //viewport y
+
+    var elem = document.createElement("div");
+    var svg_img = document.createElement("div");
+    svg_img.classList.add('spawn-pointer');
+    
+    var span = document.createElement("span");
+    span.classList.add('tooltip');
+		span.innerText="("+spawn.x+","+spawn.y+","+spawn.z+")";
+    svg_img.appendChild(span);
+		
+		elem.id = "spawn"+i;
+    elem.appendChild(svg_img)
+    viewer.addOverlay(elem, new OpenSeadragon.Point(vx, vy));
+	}
 }
 
 var findById = function(id) {
@@ -263,7 +313,10 @@ function loadAnnotations(){
 function selectMap(mapNum){
     currentMap = mapNum;
     viewer.goToPage(mapNum-1);
-    drawSpawns(currentMap, selectedMob);
+    
+    if(selectedMob==SHOW_FLOWERS){
+      drawFlowers(currentMap);
+    }else drawSpawns(currentMap, selectedMob);
 }
 
 function startApp(){ 
