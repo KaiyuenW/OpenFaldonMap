@@ -13,6 +13,7 @@
 55,Bat
 101,Bengal Tiger
 108,Black Bear
+195,Black Dire
 191,Black Dragon
 190,Black Skeleton
 24,Black Sludge
@@ -52,11 +53,13 @@
 173,Doom Beetle
 114,Dragon Ghost
 174,Dung Beetle
+198,Easter Bunny
 88,Elder Dragon
 167,Elf
 168,Elf
 16,Evil Eye
 19,Evil Fruit Bat
+197,Fenrir
 80,Fluffy
 68,Forest Ooze
 186,Frost Golem
@@ -181,6 +184,7 @@
 176,Warrior
 151,Water Blob
 105,Were-Bear
+196,White Dragon
 160,Wild Cat
 142,Winter Wolf
 103,Wisp
